@@ -16,7 +16,7 @@ namespace Hangman
             Random random = new Random();
 
             //adding a file with words
-            string[] libraryOfWords = File.ReadAllLines(@"D:\codeBase\c#\Hangman\libraryOfWords.txt"); 
+            string[] libraryOfWords = File.ReadAllLines(@"D:\Hangman\libraryOfWords.txt"); 
             string exitTheGame = string.Empty;
             int tries = 6;
 
