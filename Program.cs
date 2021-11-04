@@ -18,13 +18,13 @@ namespace Hangman
             //adding a file with words
             string[] libraryOfWords = File.ReadAllLines(@"D:\Hangman\libraryOfWords.txt"); 
             string exitTheGame = string.Empty;
-            int tries = 6;
 
             while (exitTheGame != "n")
             {
                 string secretWord = string.Empty;
                 exitTheGame = string.Empty;
                 int humanOrAI = 0;
+                int tries = 6;
 
                 while (humanOrAI != 1 && humanOrAI != 2)
                 {
