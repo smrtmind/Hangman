@@ -196,7 +196,7 @@ namespace Hangman
                 while (exitTheGame != "n" && exitTheGame != "y")
                 {
                     Print("Play again? [y] / [n]: ");
-                    exitTheGame = Console.ReadLine();
+                    exitTheGame = Console.ReadLine().ToLower();
                 }
             }
         }
