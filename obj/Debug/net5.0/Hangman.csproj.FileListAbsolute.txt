@@ -52,7 +52,6 @@ C:\docs\code\Hangman\bin\Debug\net5.0\Hangman.runtimeconfig.dev.json
 C:\docs\code\Hangman\bin\Debug\net5.0\Hangman.dll
 C:\docs\code\Hangman\bin\Debug\net5.0\ref\Hangman.dll
 C:\docs\code\Hangman\bin\Debug\net5.0\Hangman.pdb
-C:\docs\code\Hangman\obj\Debug\net5.0\Hangman.csproj.AssemblyReference.cache
 C:\docs\code\Hangman\obj\Debug\net5.0\Hangman.GeneratedMSBuildEditorConfig.editorconfig
 C:\docs\code\Hangman\obj\Debug\net5.0\Hangman.AssemblyInfoInputs.cache
 C:\docs\code\Hangman\obj\Debug\net5.0\Hangman.AssemblyInfo.cs
@@ -61,3 +60,4 @@ C:\docs\code\Hangman\obj\Debug\net5.0\Hangman.dll
 C:\docs\code\Hangman\obj\Debug\net5.0\ref\Hangman.dll
 C:\docs\code\Hangman\obj\Debug\net5.0\Hangman.pdb
 C:\docs\code\Hangman\obj\Debug\net5.0\Hangman.genruntimeconfig.cache
+C:\docs\code\Hangman\obj\Debug\net5.0\Hangman.csproj.AssemblyReference.cache
