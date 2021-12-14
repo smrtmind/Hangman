@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 
@@ -7,6 +8,7 @@ namespace Hangman
     class Program
     {
         private static Random random = new Random();
+        public static int tries;
 
         static void Main(string[] args)
         {
@@ -20,10 +22,11 @@ namespace Hangman
 
             while (exitTheGame != "n")
             {
+                var usedLetters = new Dictionary<char, bool>();
                 string secretWord = string.Empty;
                 bool correctAnswer = false;
                 int humanOrAI = default;
-                int tries = 6;
+                tries = 6;
 
                 while (humanOrAI != 1 && humanOrAI != 2)
                 {
@@ -63,8 +66,9 @@ namespace Hangman
                     //searching for letter or digit
                     while (!charOrNot)
                     {
-                        Print.Cells(answer);
-                        Print.Text(" Enter the letter: ");
+                        Print.Cells(answer, usedLetters);
+                        Print.Text($"\n Tries left: {tries}\n", ConsoleColor.DarkMagenta);
+                        Print.Text("\n Enter the letter: ");
                         charOrNot = char.TryParse(Console.ReadLine().ToUpper(), out letter);
                     }
 
@@ -75,38 +79,29 @@ namespace Hangman
                         {
                             letterIsFound = true;
                             answer[i] = secretWord[i];
+
+                            if (!usedLetters.ContainsKey(letter))
+                                usedLetters.Add(letter, true);
                         }
                     }
 
-                    if (!letterIsFound)
+                    if (!letterIsFound && !usedLetters.ContainsKey(letter))
                     {
                         tries--;
+                        usedLetters.Add(letter, false);
 
-                        if (tries != 0)
+                        if (tries == 0)
                         {
-                            if (tries > 1)
-                                Print.Text($" Wrong, try again ({tries} tries left)\n");
-
-                            else if (tries == 1)
-                                Print.Text(" Wrong, last try left!\n");
-
-                            Print.HangedMan(tries);
-                            Thread.Sleep(3000);
-                        }
-
-                        else
-                        {
-                            Print.Cells(answer);
-                            Print.HangedMan(tries);
-                            Print.Text($"\n\n You lose :( The secret word was: {secretWord}\n\n", ConsoleColor.DarkRed);
+                            Print.Cells(answer, usedLetters);
+                            Print.Text($"\n YOU LOSE :( The secret word was: {secretWord}\n\n", ConsoleColor.DarkRed);
                         }
                     }
 
                     correctAnswer = new string(answer) == secretWord;
                     if (correctAnswer)
                     {
-                        Print.Cells(answer);
-                        Print.Text($" You win :) The secret word was: {secretWord}\n\n", ConsoleColor.DarkGreen);
+                        Print.Cells(answer, usedLetters);
+                        Print.Text($"\n YOU WIN :)\n\n", ConsoleColor.DarkGreen);
                     }
                 }
 

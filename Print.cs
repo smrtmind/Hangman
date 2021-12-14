@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hangman
 {
     public class Print
     {
-        public static void Cells(char[] answer)
+        public static void Cells(char[] answer, Dictionary<char, bool> usedLetters)
         {
             Console.Clear();
 
@@ -44,9 +41,20 @@ namespace Hangman
             for (int i = 0; i < answer.Length; i++)
                 Text("|___", ConsoleColor.DarkBlue);
             Text("|\n\n", ConsoleColor.DarkBlue);
+
+            foreach (var letter in usedLetters)
+            {
+                if (letter.Value)
+                    Text($" {letter.Key}", ConsoleColor.DarkGreen);
+
+                else
+                    Text($" {letter.Key}", ConsoleColor.DarkRed);
+            }
+
+            Text($"\n{HangedMan(Program.tries)}");
         }
 
-        public static void HangedMan(int tries)
+        public static string HangedMan(int tries)
         {
             string[] hangedMan =
             {            
@@ -57,7 +65,7 @@ namespace Hangman
                 "    |    |   \n" +
                 "    |   / \\ \n" +
                 "    |        \n" +
-                " ___|___",
+                " ___|___     \n",
 
                 "    ______   \n" +
                 "    |    |   \n" +
@@ -66,7 +74,7 @@ namespace Hangman
                 "    |    |   \n" +
                 "    |   /    \n" +
                 "    |        \n" +
-                " ___|___",
+                " ___|___     \n",
 
                 "    ______   \n" +
                 "    |    |   \n" +
@@ -75,7 +83,7 @@ namespace Hangman
                 "    |    |   \n" +
                 "    |        \n" +
                 "    |        \n" +
-                " ___|___",
+                " ___|___     \n",
 
                 "    ______   \n" +
                 "    |    |   \n" +
@@ -84,7 +92,7 @@ namespace Hangman
                 "    |    |   \n" +
                 "    |        \n" +
                 "    |        \n" +
-                " ___|___",
+                " ___|___     \n",
 
                 "    ______   \n" +
                 "    |    |   \n" +
@@ -93,7 +101,7 @@ namespace Hangman
                 "    |    |   \n" +
                 "    |        \n" +
                 "    |        \n" +
-                " ___|___",
+                " ___|___     \n",
 
                 "    ______   \n" +
                 "    |    |   \n" +
@@ -102,10 +110,19 @@ namespace Hangman
                 "    |        \n" +
                 "    |        \n" +
                 "    |        \n" +
-                " ___|___"
+                " ___|___     \n",
+
+                "    ______   \n" +
+                "    |    |   \n" +
+                "    |        \n" +
+                "    |        \n" +
+                "    |        \n" +
+                "    |        \n" +
+                "    |        \n" +
+                " ___|___     \n"
             };
 
-            Text(hangedMan[tries]);
+            return hangedMan[tries];
         }
 
         public static void Text(string text, ConsoleColor color = ConsoleColor.Black)
