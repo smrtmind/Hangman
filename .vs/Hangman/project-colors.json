@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "1b6890bc-889a-4fb5-9885-4d1707298c7a": {
+      "ProjectGuid": "1b6890bc-889a-4fb5-9885-4d1707298c7a",
+      "DisplayName": "Hangman",
+      "ColorIndex": 0
+    },
+    "884f2a17-90b0-402c-a6e8-ff3a75a90125": {
+      "ProjectGuid": "884f2a17-90b0-402c-a6e8-ff3a75a90125",
+      "DisplayName": "Hangman",
+      "ColorIndex": 1
+    },
+    "ef572abf-57ee-4f79-9d0f-ca32a5476d21": {
+      "ProjectGuid": "ef572abf-57ee-4f79-9d0f-ca32a5476d21",
+      "DisplayName": "Hangman",
+      "ColorIndex": 2
+    },
+    "eff38eef-7e13-407e-a8a6-bd2b34f74340": {
+      "ProjectGuid": "eff38eef-7e13-407e-a8a6-bd2b34f74340",
+      "DisplayName": "Hangman",
+      "ColorIndex": 3
+    },
+    "cd6a488f-9369-42a3-bada-3385f3218a5f": {
+      "ProjectGuid": "cd6a488f-9369-42a3-bada-3385f3218a5f",
+      "DisplayName": "Hangman",
+      "ColorIndex": 4
+    },
+    "13c60b34-790d-482d-b862-2b4df16cabc7": {
+      "ProjectGuid": "13c60b34-790d-482d-b862-2b4df16cabc7",
+      "DisplayName": "Hangman",
+      "ColorIndex": 5
+    }
+  },
+  "NextColorIndex": 6
+}

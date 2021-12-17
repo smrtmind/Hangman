@@ -5,7 +5,7 @@ namespace Hangman
 {
     public class Print
     {
-        public static void Cells(char[] answer, Dictionary<char, bool> usedLetters)
+        public static void Cells(char[] answer, Dictionary<char, bool> usedLetters, int tries)
         {
             Console.Clear();
 
@@ -44,14 +44,17 @@ namespace Hangman
 
             foreach (var letter in usedLetters)
             {
-                if (letter.Value)
-                    Text($" {letter.Key}", ConsoleColor.DarkGreen);
+                ConsoleColor color;
 
-                else
-                    Text($" {letter.Key}", ConsoleColor.DarkRed);
+                if (letter.Value) 
+                    color = ConsoleColor.DarkGreen;
+                else 
+                    color = ConsoleColor.DarkRed;
+
+                Text($" {letter.Key}", color);
             }
 
-            Text($"\n{HangedMan(Program.tries)}");
+            Text($"\n{HangedMan(tries)}");
         }
 
         public static string HangedMan(int tries)

@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading;
 
 namespace Hangman
 {
     class Program
     {
         private static Random random = new Random();
-        public static int tries;
 
         static void Main(string[] args)
         {
@@ -17,7 +15,7 @@ namespace Hangman
             Console.ForegroundColor = ConsoleColor.Black;
 
             //adding a file with words
-            string[] libraryOfWords = File.ReadAllLines(@"C:\docs\code\Hangman\libraryOfWords.txt");
+            string[] libraryOfWords = File.ReadAllLines(@"C:\сode\Hangman\libraryOfWords.txt");
             string exitTheGame = string.Empty;
 
             while (exitTheGame != "n")
@@ -25,8 +23,9 @@ namespace Hangman
                 var usedLetters = new Dictionary<char, bool>();
                 string secretWord = string.Empty;
                 bool correctAnswer = false;
+                int secretWordMaxLength = 25;
                 int humanOrAI = default;
-                tries = 6;
+                int tries = 6;
 
                 while (humanOrAI != 1 && humanOrAI != 2)
                 {
@@ -42,9 +41,9 @@ namespace Hangman
                 {
                     Print.Text("\n you can enter a word in any language\n", ConsoleColor.DarkGreen);
 
-                    while (secretWord.Length <= 1 || secretWord.Length > 25)
+                    while (secretWord.Length <= 1 || secretWord.Length > secretWordMaxLength)
                     {
-                        Print.Text(" input (no more than 25 symbols): ");
+                        Print.Text($" input (no more than {secretWordMaxLength} symbols): ");
                         secretWord = Console.ReadLine().ToUpper();
                     }
                 }
@@ -66,7 +65,7 @@ namespace Hangman
                     //searching for letter or digit
                     while (!charOrNot)
                     {
-                        Print.Cells(answer, usedLetters);
+                        Print.Cells(answer, usedLetters, tries);
                         Print.Text($"\n Tries left: {tries}\n", ConsoleColor.DarkMagenta);
                         Print.Text("\n Enter the letter: ");
                         charOrNot = char.TryParse(Console.ReadLine().ToUpper(), out letter);
@@ -92,7 +91,7 @@ namespace Hangman
 
                         if (tries == 0)
                         {
-                            Print.Cells(answer, usedLetters);
+                            Print.Cells(answer, usedLetters, tries);
                             Print.Text($"\n YOU LOSE :( The secret word was: {secretWord}\n\n", ConsoleColor.DarkRed);
                         }
                     }
@@ -100,7 +99,7 @@ namespace Hangman
                     correctAnswer = new string(answer) == secretWord;
                     if (correctAnswer)
                     {
-                        Print.Cells(answer, usedLetters);
+                        Print.Cells(answer, usedLetters, tries);
                         Print.Text($"\n YOU WIN :)\n\n", ConsoleColor.DarkGreen);
                     }
                 }

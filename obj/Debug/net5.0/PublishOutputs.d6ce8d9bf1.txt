@@ -1,5 +1,0 @@
-D:\OneDrive\Code\C#\MyProjects\Gallows\bin\Debug\net5.0\publish\Gallows.exe
-D:\OneDrive\Code\C#\MyProjects\Gallows\bin\Debug\net5.0\publish\Gallows.dll
-D:\OneDrive\Code\C#\MyProjects\Gallows\bin\Debug\net5.0\publish\Gallows.deps.json
-D:\OneDrive\Code\C#\MyProjects\Gallows\bin\Debug\net5.0\publish\Gallows.runtimeconfig.json
-D:\OneDrive\Code\C#\MyProjects\Gallows\bin\Debug\net5.0\publish\Gallows.pdb
